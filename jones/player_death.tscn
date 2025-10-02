@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbyg5jsivlo8k"]
+
+[ext_resource type="Texture2D" uid="uid://btm1g05sl2xa" path="res://sprites/player.png" id="1_kpbb1"]
+[ext_resource type="Script" uid="uid://b2bnftftje7ml" path="res://player_death.gd" id="1_nnccp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hds04"]
+size = Vector2(23, 63)
+
+[node name="player_death" type="CharacterBody2D"]
+light_mask = 4
+visibility_layer = 4
+scale = Vector2(0.75, 0.75)
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_nnccp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 8
+visibility_layer = 4
+position = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_hds04")
+
+[node name="death_sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.63529414)
+light_mask = 4
+visibility_layer = 4
+texture_filter = 1
+texture = ExtResource("1_kpbb1")
+
+[node name="ground_cast_1" type="RayCast2D" parent="."]
+light_mask = 6
+visibility_layer = 6
+target_position = Vector2(-14, 0)
+collision_mask = 6
+hit_from_inside = true
+
+[node name="ground_cast_2" type="RayCast2D" parent="."]
+light_mask = 6
+visibility_layer = 6
+target_position = Vector2(16, 0)
+collision_mask = 4
+hit_from_inside = true

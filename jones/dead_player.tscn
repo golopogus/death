@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8jukd46pu6ku"]
+
+[ext_resource type="Script" uid="uid://b3q0of3014x60" path="res://dead_player.gd" id="1_dvvuk"]
+[ext_resource type="Texture2D" uid="uid://btm1g05sl2xa" path="res://sprites/player.png" id="1_gwnuu"]
+
+[sub_resource type="Curve2D" id="Curve2D_l4ulx"]
+_data = {
+"points": PackedVector2Array(4.6259303, -2.7173295, -4.6259303, 2.7173295, -11, -8, 0, 0, 0, 0, -8, -8, 0, 0, 0, 0, -4, -8, 0, 0, 0, 0, 0, -9, 0, 0, 0, 0, 4, -8, 0, 0, 0, 0, 7, -8, 0, 0, 0, 0, 10, -8, -5.3376117, -4.4641843, 5.3376117, 4.4641843, 13, -8, 0, 0, 0, 0, 13, -4, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 13, 3, 1.5851089, -6.049293, -1.5851089, 6.049293, 13, 6, 2.2967906, -5.596405, -2.2967906, 5.596405, 14, 11, 0, 0, 0, 0, 11, 11, 2.6849804, -2.4908855, -2.6849804, 2.4908855, 8, 11, 0, 0, 0, 0, 4, 11, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, -3, 12, 0, 0, 0, 0, -6, 12, 5.531707, 2.0056481, -5.531707, -2.0056481, -10, 12, 2.814377, 5.0788183, -2.814377, -5.0788183, -11, 9, 2.0379972, 5.467008, -2.0379972, -5.467008, -11, 6, 0, 0, 0, 0, -11, 3, -0.5822849, 5.628754, 0.5822849, -5.628754, -11, -1, -1.196919, 7.019768, 1.196919, -7.019768, -11, -5, 3.8818994, -3.5260587, -3.8818994, 3.5260587, -11, -8)
+}
+point_count = 26
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dvvuk"]
+radius = 17.0
+height = 48.0
+
+[node name="dead_player" type="Path2D"]
+scale = Vector2(0.266, 0.25)
+curve = SubResource("Curve2D_l4ulx")
+script = ExtResource("1_dvvuk")
+metadata/_edit_group_ = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-11, -8)
+scale = Vector2(4, 4)
+progress = 87.651184
+rotates = false
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D"]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Area2D"]
+shape = SubResource("CapsuleShape2D_dvvuk")
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/Area2D"]
+modulate = Color(0.3121691, 0.07328799, 0.07726929, 0.5647059)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_gwnuu")
+
+[connection signal="body_entered" from="PathFollow2D/Area2D" to="." method="_on_area_2d_body_entered"]
