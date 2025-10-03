@@ -13,12 +13,12 @@ size = Vector2(1378, 36)
 script = ExtResource("1_f7g2b")
 
 [node name="start_point" type="Marker2D" parent="."]
-position = Vector2(155, 581)
+position = Vector2(25, 36)
 
 [node name="ground" type="StaticBody2D" parent="."]
 light_mask = 5
 visibility_layer = 5
-position = Vector2(-198, 606)
+position = Vector2(-303, 271)
 collision_layer = 5
 collision_mask = 7
 metadata/_edit_group_ = true
@@ -34,7 +34,7 @@ offset_bottom = 47.0
 [node name="ground2" type="StaticBody2D" parent="."]
 light_mask = 5
 visibility_layer = 5
-position = Vector2(686, 607)
+position = Vector2(581, 272)
 collision_layer = 5
 collision_mask = 7
 metadata/_edit_group_ = true
@@ -48,43 +48,43 @@ offset_right = 488.0
 offset_bottom = 47.0
 
 [node name="spike" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(505, 635)
+position = Vector2(400, 300)
 
 [node name="spike2" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(538, 635)
+position = Vector2(433, 300)
 
 [node name="spike3" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(637, 636)
+position = Vector2(532, 301)
 
 [node name="spike4" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(604, 635)
+position = Vector2(499, 300)
 
 [node name="spike5" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(571, 635)
+position = Vector2(466, 300)
 
 [node name="spike6" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(670, 636)
+position = Vector2(565, 301)
 
 [node name="spike7" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(307, 634)
+position = Vector2(202, 299)
 
 [node name="spike8" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(340, 634)
+position = Vector2(235, 299)
 
 [node name="spike9" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(439, 635)
+position = Vector2(334, 300)
 
 [node name="spike10" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(406, 634)
+position = Vector2(301, 299)
 
 [node name="spike11" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(373, 634)
+position = Vector2(268, 299)
 
 [node name="spike12" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(472, 635)
+position = Vector2(367, 300)
 
 [node name="boundary" type="Area2D" parent="."]
-position = Vector2(-202, 665)
+position = Vector2(-307, 330)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundary"]
@@ -93,10 +93,6 @@ shape = SubResource("RectangleShape2D_1c2mv")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(291, 539)
-zoom = Vector2(3, 3)
 
 [connection signal="body_entered" from="boundary" to="." method="_on_boundary_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

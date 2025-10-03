@@ -245,8 +245,8 @@ func play_anim(anim):
 		node.flip_h = false
 	else:
 		node.flip_h = true
-	#if $AnimationPlayer.current_animation == 'side_attack':
-		#flip_side_attack(node.flip_h)
+	if $AnimationPlayer.current_animation == 'side_attack':
+		flip_side_attack(node.flip_h)
 	
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'jump':
@@ -255,8 +255,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		attacking = false
 		play_anim('idle')
 
-#func flip_side_attack(flip):
-	#if flip:
-		#$all_whips/whip_right.rotation_degrees = -90
-	#else:
-		#$all_whips/whip_right.rotation_degrees = 90
+func flip_side_attack(flip):
+	if flip:
+		$all_whips/whip_right.rotation_degrees = -90
+	else:
+		$all_whips/whip_right.rotation_degrees = 90

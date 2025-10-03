@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/stretch/mode="viewport"
 
 [input]
 
@@ -65,3 +66,7 @@ jump={
 2d_physics/layer_4="dead body"
 2d_physics/layer_5="ghost"
 2d_physics/layer_6="whip"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
