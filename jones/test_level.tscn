@@ -13,7 +13,7 @@ size = Vector2(1378, 36)
 script = ExtResource("1_f7g2b")
 
 [node name="start_point" type="Marker2D" parent="."]
-position = Vector2(52, 583)
+position = Vector2(155, 581)
 
 [node name="ground" type="StaticBody2D" parent="."]
 light_mask = 5
@@ -93,6 +93,10 @@ shape = SubResource("RectangleShape2D_1c2mv")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(291, 539)
+zoom = Vector2(3, 3)
 
 [connection signal="body_entered" from="boundary" to="." method="_on_boundary_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
